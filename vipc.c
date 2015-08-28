@@ -1,4 +1,4 @@
- /*************************************************
+/*************************************************
  * Copyright (c) 2015 Tacumi Susukihara           *
  * Released under the MIT licence                 *
  * http://opensource.org/licenses/mit-license.php *
@@ -16,16 +16,16 @@ void BinarytoVIP(FILE *in,FILE *out);
 
 int main(int argc, char** argv)
 {
-	FILE *infp,*outfp;
-	char *inputFileName,*outputFileName;
+  FILE *infp,*outfp;
+  char *inputFileName,*outputFileName;
   void (*compile[])(FILE *,FILE *)={VIPtoBinary,BinarytoVIP};
-	int opt,idx;
+  int opt,idx;
   int decompile=0;
-	outputFileName = "a.out";
-	while ((opt=getopt(argc,argv,"dho:v")) != -1)
-	{
-		switch(opt)
-		{
+  outputFileName = "a.out";
+  while ((opt=getopt(argc,argv,"dho:v")) != -1)
+  {
+    switch(opt)
+    {
       case 'd':
         decompile=1;
         if(!strcmp("a.out",outputFileName)){
@@ -38,14 +38,14 @@ int main(int argc, char** argv)
       case 'v':
         fprintf(stderr,"%s",VERSION);
         return EXIT_SUCCESS;
-			case 'h':
+      case 'h':
         // Fall through
-			default:
-				usage(argv[0]);
+      default:
+        usage(argv[0]);
         return EXIT_FAILURE;
 
-		}
-	}
+    }
+  }
   while(optind < argc)
   {
     inputFileName = argv[optind++];
@@ -96,11 +96,11 @@ void VIPtoBinary(FILE *in,FILE *out){
 }
 void usage(char *cmd)
 {
-	fprintf(stderr, "usage: %s [options] file\n",cmd);
-	fprintf(stderr, "%s -o outputfile\t: specify output file\n",cmd);
-	fprintf(stderr, "%s -d\t\t: disassemble input file\n",cmd);
-	fprintf(stderr, "%s -h\t\t: show help\n",cmd);
-	fprintf(stderr, "%s -v\t\t: show version\n",cmd);
+  fprintf(stderr, "usage: %s [options] file\n",cmd);
+  fprintf(stderr, "%s -o outputfile\t: specify output file\n",cmd);
+  fprintf(stderr, "%s -d\t\t: disassemble input file\n",cmd);
+  fprintf(stderr, "%s -h\t\t: show help\n",cmd);
+  fprintf(stderr, "%s -v\t\t: show version\n",cmd);
 }
 char getByte(FILE *fp)
 {
