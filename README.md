@@ -19,6 +19,5 @@ $ ./vipc [-o <output file>] [-dhv] <input file>
     -v バージョンを表示します
 ```
 
-
 # 参考URL
 http://vipprog.net/wiki/prog_lang/vip.html
