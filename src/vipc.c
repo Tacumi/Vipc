@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <getopt.h>
 #define VERSION "VIP language Compiler Version 0.0.1\n"
 
 void usage(char *cmd);
@@ -19,9 +19,10 @@ int main(int argc, char** argv)
   FILE *infp,*outfp;
   char *inputFileName,*outputFileName;
   void (*compile[])(FILE *,FILE *)={VIPtoBinary,BinarytoVIP};
-  int opt,idx;
+  int opt;
   int decompile=0;
   outputFileName = "a.out";
+  inputFileName=NULL;
   while ((opt=getopt(argc,argv,"dho:v")) != -1)
   {
     switch(opt)
