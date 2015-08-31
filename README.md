@@ -4,9 +4,10 @@ VIP言語のコンパイラ/デコンパイラ
 # インストール方法
 ```
 $ git clone https://github.com/dekinu-hito/vipc.git
+$ cmake .
 $ make
-$ ./vipc -h
 ```
+
 # 使用方法
 書式は以下の通りです
 
